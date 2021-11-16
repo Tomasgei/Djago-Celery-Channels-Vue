@@ -19,12 +19,11 @@
   </div>
     <div class="container">
         <div class="row">
-          <div class="col-4 mx-auto mt-5 text-center">
+          <div class="col-6 mx-auto mt-5 text-center">
             <h3 class="mb-5">CryptoMarket</h3>
             
             {% verbatim %}
                 <div id="app">
-                {{ message }}
                   <table class="table table-hover">
                     <thead>
                         <tr>
@@ -36,11 +35,11 @@
                     <tbody>
                         <tr v-for="coin in coins" :key="coin.id">
                             <td class="align-middle">{{ coin.rank }}</td>
-                            <td class="align-middle "><img class="crypto-img p-1" :src="coin.image" alt=""><br>
+                            <td class="align-middle "><img class="crypto-img p-1" :src="coin.image" alt="">
                             {{ coin.name }}
-                            <small class="sym-col text-muted px-2">{{ coin.symbol }}/USD</small>
+                            <small class="sym-col text-muted px-2">{{ coin.symbol}}/USD</small>
                             </td>
-                            <td class="align-middle px-2">{{ coin.price }}</td>      
+                            <td class="align-middle px-2" :class="{'rising': coin.state ==='raise','falling': coin.state === 'fall' }">{{ coin.price }}</td>      
                         </tr>
                     </tbody>
                   </table>
@@ -56,7 +55,7 @@
       const CoinsApp = {
         data(){
           return {
-            message: "Hello world!",
+
             coins: null
 
           }

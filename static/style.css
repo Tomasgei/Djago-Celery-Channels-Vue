@@ -12,3 +12,11 @@ h3 {
 
     color:lightslategray;
 }
+
+.falling {
+    color:greenyellow;
+}
+
+.rising {
+    color:red;
+}
